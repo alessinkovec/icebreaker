@@ -1,0 +1,31 @@
+.wrapper {
+  background-color: rgba(150,150,150,0.1);
+}
+
+.banner {
+  color: white;
+  text-align: center;
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  text-decoration: none;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background-color: blue;
+  color: white;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  &:hover {
+      text-decoration: none;
+      color: orange;
+      opacity: 0.7;
+    }
+}
