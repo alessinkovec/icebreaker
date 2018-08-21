@@ -23,6 +23,16 @@ address_people = [
   )
 end
 
+User.create!(
+  first_name: "Francisco",
+  last_name: "Braga",
+  address: "WeWork Ipanema",
+  gender: "male",
+  birthday: "18-3-1980",
+  email: "user@user.com",
+  password: "123456"
+  )
+
 address_places = [
   "Blue Agave, Ipanema",
   "Sabugosa, Ipanema",
@@ -36,7 +46,7 @@ address_places = [
   name: Faker::StrangerThings.quote,
   address: address_places.sample,
   time: Faker::Time.between(DateTime.now, Date.today, :evening),
-  user_id: rand(1..20)
+  user_id: rand(1..21)
   )
 end
 
