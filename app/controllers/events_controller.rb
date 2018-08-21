@@ -14,7 +14,6 @@ class EventsController < ApplicationController
       name: "#{current_user.first_name}#{EVENT_TYPES.sample}",
       address: PLACES.sample,
       time: DateTime.new(Date.today.year, Date.today.month, Date.today.day, 19, 30),
-      user_id: current_user.id
     )
     redirect_to @event
   end
