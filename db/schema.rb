@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_210913) do
     t.string "address"
     t.datetime "time"
     t.bigint "user_id"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
