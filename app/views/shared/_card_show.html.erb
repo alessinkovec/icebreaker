@@ -1,0 +1,13 @@
+<div class="row fix-margin">
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg');">
+      <div class="card-category"><%= event.address %></div>
+      <div class="card-description">
+        <%= event.time.strftime('%d-%h | %Hh%Mm') %>
+
+      </div>
+      <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+      <%= link_to "", event, class: "card-link" %>
+    </div>
+  </div>
+</div>
