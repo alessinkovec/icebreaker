@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'events/index'
-  get 'events/show'
+  root to: 'events#index'
+
+  resources :events, only: [:index, :show, :create]
+
   devise_for :users
-  root to: 'pages#home'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
