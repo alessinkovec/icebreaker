@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :address
       t.datetime :time
       t.references :user, foreign_key: true
-      t.boolean :status
+      t.boolean :status, default: true
 
       t.timestamps
     end

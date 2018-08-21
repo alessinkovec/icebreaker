@@ -5,6 +5,21 @@ Event.destroy_all
 
 puts "Creating all motherfuckers"
 
+address_places = [
+  "Blue Agave, Ipanema",
+  "Sabugosa, Ipanema",
+  "Polis Sucos, Ipanema",
+  "Centaurus, Ipanema",
+  "Azumi, Copacabana",
+  "Siqueiro Campos Metro, Copacabana"
+]
+
+4.times do Event.create!(
+  name: Faker::StrangerThings.quote,
+  address: address_places.sample,
+  time: Faker::Time.between(DateTime.now, Date.today, :evening),
+  )
+end
 
 gender = ["male", "female"]
 address_people = [
@@ -19,7 +34,8 @@ address_people = [
   gender: gender.sample,
   birthday: Faker::Date.birthday(18, 42),
   email: Faker::Internet.email,
-  password: "123456"
+  password: "123456",
+  event_id: rand(1..4)
   )
 end
 
@@ -30,26 +46,9 @@ User.create!(
   gender: "male",
   birthday: "18-3-1980",
   email: "user@user.com",
-  password: "123456"
+  password: "123456",
+  event_id: rand(1..4)
   )
-
-address_places = [
-  "Blue Agave, Ipanema",
-  "Sabugosa, Ipanema",
-  "Polis Sucos, Ipanema",
-  "Centaurus, Ipanema",
-  "Azumi, Copacabana",
-  "Siqueiro Campos Metro, Copacabana"
-]
-
-4.times do Event.create!(
-  name: Faker::StrangerThings.quote,
-  address: address_places.sample,
-  time: Faker::Time.between(DateTime.now, Date.today, :evening),
-  user_id: rand(1..21)
-  )
-end
-
 
 puts "Finished the motherfuckening"
 
