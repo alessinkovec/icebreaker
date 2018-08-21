@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_173642) do
     t.string "name"
     t.string "address"
     t.datetime "time"
-    t.boolean "status", default: true
+    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
