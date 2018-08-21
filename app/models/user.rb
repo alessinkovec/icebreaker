@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :event
+  belongs_to :event, optional: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :address, presence: true
