@@ -6,3 +6,6 @@ eventTime.innerHTML = "<%= @event.time.strftime('%d-%h | %Hh%Mm') %>";
 
 eventPlaceName = document.querySelector(".card-category");
 eventPlaceName.innerHTML = "<%= @event.place_name %>";
+
+eventPhoto = document.querySelector(".card");
+eventPhoto.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= raw @event.photo_url %>)";
