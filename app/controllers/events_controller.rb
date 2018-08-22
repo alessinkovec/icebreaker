@@ -16,22 +16,50 @@ class EventsController < ApplicationController
     @chat = Chat.new
     @chats = Chat.where(event_id: params[:id])
     @event = Event.find_by(id: params[:id])
+    parse
+    @bar_names = []
+    @mega_hash["results"].each do |bar|
+      @bar_names << bar["name"]
+    end
+  end
 
-    # @markers = @event{ lat: event.latitude, lng: event.longitude }
+  def update
+    @event = Event.find_by(id: params[:id])
+    @event.update(event_params)
+    parse
+    new_bar = @mega_hash["results"].select do |bar|
+      bar["name"] == @event.place_name
+    end
+    bar_photo_ref = new_bar[0]['photos'][0]['photo_reference']
+    @event.photo_url = new_bar[0]['photos'].nil? ? 'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg' : "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    @event.address = new_bar[0]['vicinity']
+
+    @event.update(event_params)
+
+    respond_to do |format|
+    format.html { render 'events/show'}
+    format.js
+    end
+  end
+
+  def parse
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&radius=500&type=bar&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    @mega_hash = JSON.parse(open(url).read)
   end
 
   def create
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&radius=500&type=bar&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
-    mega_hash = JSON.parse(open(url).read)
-    random_bar = mega_hash["results"].sample
+    parse
+    random_bar = @mega_hash["results"].sample
+
     bar_name = random_bar["name"]
     bar_address = random_bar["vicinity"]
     bar_photo_ref = random_bar["photos"][0]["photo_reference"] unless random_bar["photos"].nil?
     @event = Event.create(
       name: "#{current_user.first_name}#{EVENT_TYPES.sample}",
-      address: "#{bar_name}",
-      photo_url: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}",
-      time: DateTime.new(Date.today.year, Date.today.month, Date.today.day, 19, 30)
+      place_name: "#{bar_name}",
+      address: "#{bar_address}",
+      photo_url: random_bar["photos"].nil? ? 'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg' : "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}",
+      time: DateTime.new(Date.today.year, Date.today.month, Date.today.day, rand(19..20), [00,30].sample)
     )
     redirect_to event_path(@event)
     # @chat = Chat.new
@@ -71,9 +99,13 @@ class EventsController < ApplicationController
     "Azumi, Copacabana",
     "Siqueiro Campos Metro, Copacabana"
   ]
+
   private
 
   def chat_params
     params.require(:chat).permit(:username, :message, :event_id)
+
+  def event_params
+    params.require(:event).permit(:name, :time, :place_name, :address, :photo_url)
   end
 end

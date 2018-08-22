@@ -1,17 +1,34 @@
-<div class="row fix-margin">
-  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<% if @event.photo_url.nil? %>
-      'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg'
-        <% else %>
-        <%= @event.photo_url %>
-        <% end %>);">
-      <div class="card-category"><%= event.address %></div>
-      <div class="card-description">
-        <%= event.time.strftime('%d-%h | %Hh%Mm') %>
-
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <div class="front">
+      <!-- front content -->
+      <div class="row fix-margin">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<% if @event.photo_url.nil? %>
+            'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg'
+              <% else %>
+              <%= @event.photo_url %>
+              <% end %>);">
+            <div class="card-category"><%= event.place_name %></div>
+            <div class="card-description">
+              <%= event.time.strftime('%d-%h | %Hh%Mm') %>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
-      <%= link_to "", event, class: "card-link" %>
+    </div>
+    <div class="back">
+      <!-- back content -->
+      <%= simple_form_for(@event, remote: true) do |f| %>
+        <%= f.input :name %>
+        <%= f.label :place_name %>
+        <%= f.select :place_name, @bar_names %>
+        <%= f.input :time %>
+        <%= f.submit class: "btn btn-primary btn-flip" %>
+      <% end %>
     </div>
   </div>
 </div>
+<button class="btn btn-success" id="myCard">Click to Update</button>
+
+
