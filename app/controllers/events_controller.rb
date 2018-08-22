@@ -12,6 +12,16 @@ class EventsController < ApplicationController
     #@markers = @event{ lat: event.latitude, lng: event.longitude }
   end
 
+  def update
+    @event = Event.find_by(id: params[:id])
+    @event.update(event_params)
+
+    respond_to do |format|
+      format.html { render 'events/show'}
+      format.js
+    end
+  end
+
   def create
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&radius=500&type=bar&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     mega_hash = JSON.parse(open(url).read)
@@ -50,4 +60,10 @@ class EventsController < ApplicationController
     "Azumi, Copacabana",
     "Siqueiro Campos Metro, Copacabana"
   ]
+
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :time)
+  end
 end
