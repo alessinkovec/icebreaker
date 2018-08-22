@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # post '/events', to: 'events#create'
 
-  resources :events, only: [:index, :show, :create]
+  resources :events, only: [:index, :show, :create, :update]
 
   devise_for :users
 
