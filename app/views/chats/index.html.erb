@@ -1,13 +1,10 @@
-<div class="container">
-  <div class="row card-show">
-      <h5 id="event-name"><%= @event.name %> </h5>
-      <%= render "shared/card_show", event: @event %>
-  </div>
-
-  <div class="col-sm-6 col-sm-offset-3">
-    <h3>Future chat here</h3>
-  </div>
 <div class="container-fluid">
+  <div class="container" id="top">
+    <div class="row">
+      <h2 class="event_title">Getting beers with people</h2>
+      <img src="https://media1.popsugar-assets.com/files/2011/08/33/2/192/1922195/1cbad7b4a55294be_stk33079lce.preview.jpg" alt="">
+    </div>
+  </div>
       <div class="row">
         <div class="col-3 col-md-2 bg-dark full-height sidebar">
           <div class="sidebar-content">
@@ -17,7 +14,7 @@
         </div>
         <div class="col-9 col-md-10 bg-light full-height">
           <div class="container-fluid">
-            <div class="chat-box py-2" id="<%= @event.id %>">
+            <div class="chat-box py-2">
               <h4 class="username d-none mb-3"></h4>
               <% @chats.each do |chat| %>
                 <div class="col-12">
@@ -28,16 +25,23 @@
                     </div>
                   </div>
                 </div>
-                </div>
               <% end %>
             </div>
             <div class="chat-text-input">
               <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
-
+                <% if @chat.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
+                    <ul>
+                      <% @chat.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
                 <div class="field position-relative">
                   <%= form.text_field :message, id: :message, class: "form-control", required: true, disabled: true %>
                   <%= form.hidden_field :username, id: :username %>
-                  <%= form.hidden_field :event_id, value: @event.id %>
                 </div>
               <% end %>
             </div>
@@ -45,4 +49,3 @@
         </div>
       </div>
     </div>
-</div>
