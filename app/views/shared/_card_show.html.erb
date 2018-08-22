@@ -21,6 +21,8 @@
       <!-- back content -->
       <%= simple_form_for(@event, remote: true) do |f| %>
         <%= f.input :name %>
+        <%= f.label :place_name %>
+        <%= f.select :place_name, @bar_names %>
         <%= f.input :time %>
         <%= f.submit class: "btn btn-primary btn-flip" %>
       <% end %>

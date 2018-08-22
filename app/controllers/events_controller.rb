@@ -9,6 +9,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&radius=500&type=bar&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    mega_hash = JSON.parse(open(url).read)
+    @bar_names = []
+    mega_hash["results"].each do |bar|
+      @bar_names << bar["name"]
+    end
     #@markers = @event{ lat: event.latitude, lng: event.longitude }
   end
 
@@ -26,6 +32,12 @@ class EventsController < ApplicationController
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&radius=500&type=bar&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     mega_hash = JSON.parse(open(url).read)
     random_bar = mega_hash["results"].sample
+
+    @bar_names = []
+    mega_hash["results"].each do |bar|
+      @bar_names << bar["name"]
+    end
+
     bar_name = random_bar["name"]
     bar_address = random_bar["vicinity"]
     bar_photo_ref = random_bar["photos"][0]["photo_reference"] unless random_bar["photos"].nil?
