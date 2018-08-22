@@ -9,23 +9,42 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    parse
+    @bar_names = []
+    @mega_hash["results"].each do |bar|
+      @bar_names << bar["name"]
+    end
     #@markers = @event{ lat: event.latitude, lng: event.longitude }
   end
 
   def update
     @event = Event.find_by(id: params[:id])
     @event.update(event_params)
+    parse
+    new_bar = @mega_hash["results"].select do |bar|
+      bar["name"] == @event.place_name
+    end
+    bar_photo_ref = new_bar[0]['photos'][0]['photo_reference']
+    @event.photo_url = new_bar[0]['photos'].nil? ? 'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg' : "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    @event.address = new_bar[0]['vicinity']
+
+    @event.update(event_params)
 
     respond_to do |format|
-      format.html { render 'events/show'}
-      format.js
+    format.html { render 'events/show'}
+    format.js
     end
   end
 
-  def create
+  def parse
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{current_user.latitude},#{current_user.longitude}&radius=500&type=bar&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
-    mega_hash = JSON.parse(open(url).read)
-    random_bar = mega_hash["results"].sample
+    @mega_hash = JSON.parse(open(url).read)
+  end
+
+  def create
+    parse
+    random_bar = @mega_hash["results"].sample
+
     bar_name = random_bar["name"]
     bar_address = random_bar["vicinity"]
     bar_photo_ref = random_bar["photos"][0]["photo_reference"] unless random_bar["photos"].nil?
@@ -65,6 +84,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :time, :place_name)
+    params.require(:event).permit(:name, :time, :place_name, :address, :photo_url)
   end
 end
