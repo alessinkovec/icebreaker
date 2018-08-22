@@ -2,6 +2,7 @@ eventName = document.getElementById("event-name");
 eventName.innerHTML = "<%= @event.name %>";
 
 eventTime = document.querySelector(".card-description");
-eventTime.innerHTML = "<%= @event.time.strftime('%d-%h | %Hh%Mm') %>"
+eventTime.innerHTML = "<%= @event.time.strftime('%d-%h | %Hh%Mm') %>";
 
-
+eventPlaceName = document.querySelector(".card-category");
+eventPlaceName.innerHTML = "<%= @event.place_name %>";
