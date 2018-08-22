@@ -104,6 +104,7 @@ class EventsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:username, :message, :event_id)
+  end
 
   def event_params
     params.require(:event).permit(:name, :time, :place_name, :address, :photo_url)
