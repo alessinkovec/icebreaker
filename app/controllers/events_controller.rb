@@ -7,8 +7,16 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def new
+    @chat = Chat.new
+  end
+
   def show
+    # @chats = Chat.all
+    @chat = Chat.new
+    @chats = Chat.where(event_id: params[:id])
     @event = Event.find_by(id: params[:id])
+
     # @markers = @event{ lat: event.latitude, lng: event.longitude }
   end
 
@@ -19,14 +27,27 @@ class EventsController < ApplicationController
     bar_name = random_bar["name"]
     bar_address = random_bar["vicinity"]
     bar_photo_ref = random_bar["photos"][0]["photo_reference"] unless random_bar["photos"].nil?
-
     @event = Event.create(
       name: "#{current_user.first_name}#{EVENT_TYPES.sample}",
       address: "#{bar_name}",
       photo_url: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}",
       time: DateTime.new(Date.today.year, Date.today.month, Date.today.day, 19, 30)
     )
-    redirect_to @event
+    redirect_to event_path(@event)
+    # @chat = Chat.new
+    # @chat.username = current_user.first_name
+    # @chat.message = "blabal"
+    # @chat.event_id = @event.id
+    # @chat.save
+    # respond_to do |format|
+    # if @chat.save
+    #   format.html { redirect_to @event, notice: 'Message was successfully posted.' }
+    #   format.json { render :show, status: :created, location: @event }
+    # else
+    #   format.html { render :new }
+    #   format.json { render json: @chat.errors, status: :unprocessable_entity }
+    # end
+
   end
 
   EVENT_TYPES = [
@@ -50,4 +71,9 @@ class EventsController < ApplicationController
     "Azumi, Copacabana",
     "Siqueiro Campos Metro, Copacabana"
   ]
+  private
+
+  def chat_params
+    params.require(:chat).permit(:username, :message, :event_id)
+  end
 end
