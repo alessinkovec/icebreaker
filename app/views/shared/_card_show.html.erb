@@ -9,7 +9,7 @@
               <% else %>
               <%= @event.photo_url %>
               <% end %>);">
-            <div class="card-category"><%= event.address %></div>
+            <div class="card-category"><%= event.place_name %></div>
             <div class="card-description">
               <%= event.time.strftime('%d-%h | %Hh%Mm') %>
             </div>
