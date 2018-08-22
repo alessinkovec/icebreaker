@@ -33,8 +33,8 @@ class EventsController < ApplicationController
     @event = Event.create(
       name: "#{current_user.first_name}#{EVENT_TYPES.sample}",
       address: "#{bar_name}",
-      photo_url: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}",
-      time: DateTime.new(Date.today.year, Date.today.month, Date.today.day, 19, 30)
+      photo_url: random_bar["photos"].nil? ? 'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg' : "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}",
+      time: DateTime.new(Date.today.year, Date.today.month, Date.today.day, rand(19..20), [00,30].sample)
     )
     redirect_to @event
   end
