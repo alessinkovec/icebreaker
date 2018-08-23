@@ -1,0 +1,46 @@
+.full-height {
+ height: 100vh;
+ overflow: hidden;
+}
+
+input.form-control.sidebar-form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.chat-box {
+  height: 94vh;
+  overflow: scroll;
+  background: url("https://st2.depositphotos.com/3732989/12447/i/950/depositphotos_124470104-stock-photo-light-blue-ice-pattern.jpg");
+
+}
+
+.chat {
+  border-radius: 3px;
+  padding: 0rem 2rem 0 1rem;
+}
+
+.chat-username {
+  font-size: 0.7rem;
+}
+
+.chat-message {
+  font-size: 0.85rem;
+}
+.chat-bubble {
+background-color: #1a0dab;
+padding-left: 20px;
+padding-right: 220px;
+border-radius: 300px;
+margin: 10px;
+}
+.img_text {
+display: flex;
+justify-content: left;
+}
+.penguin {
+  height: 50px;
+}
