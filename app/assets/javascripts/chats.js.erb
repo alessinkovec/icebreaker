@@ -9,22 +9,11 @@ $(document).ready((function(_this) {
       console.log(ev);
 
       if (ev == data.event_id) {
-        $('.chat-box').append("<div class=\"chat-bubble\">\n <img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\"  <small class=\"chat-username\">" + data.username + "</small>\n <p class=\"m-0 chat-message\">" + data.message + "</p>\n \n </div>\n </div>\n</div>");
+        $('.chat-box').append("<div class=\"chat-all\"> <img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\"> <div class=\"chat-bubble\"> <small class=\"chat-username\">" + data.username + "</small> <p class=\"m-0 chat-message\">" + data.message + "</p> </div></div>");
       }
 
     };
 
-    $('.sidebar-form').keyup(function(event) {
-      if (event.keyCode === 13 && !event.shiftKey) {
-        username = event.target.value;
-        $('.username').append(username);
-        $('#username').val(username);
-        $('.username').removeClass('d-none');
-        $('.sidebar-form').addClass('d-none');
-        $('#message').removeAttr("disabled");
-        $('#message').focus();
-      }
-    });
 
     $('#chat-form').on('ajax:success', function(data) {
       $('#chat-form')[0].reset();

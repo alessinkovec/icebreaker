@@ -1,47 +1,40 @@
 <div class="container">
   <div class="row card-show">
-      <h5 id="event-name"><%= @event.name %> </h5>
-      <%= render "shared/card_show", event: @event %>
+    <h5 id="event-name"><%= @event.name %> </h5>
+    <%= render "shared/card_show", event: @event %>
   </div>
 
-  <div class="col-sm-6 col-sm-offset-3">
-    <h3>Future chat here</h3>
+  <div class="col-sm-6 col-sm-offset-3 send-message">
+    <h3>Send Message</h3>
   </div>
-<div class="container-fluid">
-      <div class="row">
-        <div class="col-3 col-md-2 bg-dark full-height sidebar">
-          <div class="sidebar-content">
-            <input type="text" class="form-control sidebar-form" placeholder="Enter a username" required />
-            <h4 class="text-white mt-5 text-center username d-none">Hello </h4>
-          </div>
+  <div class="container-fluid">
+    <div class="row" id="row_box">
+      <div class="chat-text-input">
+        <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
+        <div class="field position-relative">
+          <%= form.text_field :message, id: :message, class: "form-control", required: true %>
+          <%= form.hidden_field :username, value: current_user.first_name %>
+          <%= form.hidden_field :event_id, value: @event.id %>
         </div>
-        <div class="col-9 col-md-10 bg-light full-height">
-          <div class="container-fluid">
-            <div class="chat-box py-2" id="<%= @event.id %>">
-              <h4 class="username d-none mb-3"></h4>
-              <% @chats.each do |chat| %>
-                <div class="col-12">
-                  <div class="chat bg-secondary d-inline-block text-left text-white mb-2">
-                    <div class="chat-bubble" id="bubble">
-                      <small class="chat-username"><%= chat.username %></small>
-                      <p class="m-0 chat-message"><%= chat.message %></p>
-                    </div>
-                  </div>
+        <% end %>
+      </div>
+      <div class="col-12 col-md-10 full-height">
+        <div class="container-fluid">
+          <div class="chat-box py-2" id="<%= @event.id %>">
+            <h4 class="username d-none mb-3"></h4>
+            <% @chats.each do |chat| %>
+            <div class="col-12">
+              <div class="chat bg-secondary d-inline-block text-left text-white mb-2">
+                <div class="chat-bubble" id="bubble">
+                  <small class="chat-username"><%= chat.username %></small>
+                  <p class="m-0 chat-message"><%= chat.message %></p>
                 </div>
-              <% end %>
+              </div>
             </div>
-            <div class="chat-text-input">
-              <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
-
-                <div class="field position-relative">
-                  <%= form.text_field :message, id: :message, class: "form-control", required: true, disabled: true %>
-                  <%= form.hidden_field :username, id: :username %>
-                  <%= form.hidden_field :event_id, value: @event.id %>
-                </div>
-              <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
