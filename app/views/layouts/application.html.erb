@@ -9,6 +9,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- <%#= stylesheet_pack_tag 'application', media: 'all' %> Uncomment if you import CSS in app/javascript/packs/application.js -->
     <meta name="description" content="ICEbreaker is the fastest and safest way to network with people near you. Geared towards office workers and digital nomads, an experience is only one click away.">
 <!--     <meta property="og:title" content="Le Wagon - The French innovative coding school">
@@ -23,11 +24,11 @@
     <meta name="twitter:image:src" content="http://twitter-card.jpg"> -->
   </head>
   <body>
-    <div class="wrapper">
+
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
-    </div>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_pack_tag 'application' %>
