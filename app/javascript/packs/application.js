@@ -1,5 +1,6 @@
 import "bootstrap";
 import { flipcard } from "../components/flipcard.js"
 
-flipcard();
+if (document.querySelector('.flip-container')) flipcard();
+
 
