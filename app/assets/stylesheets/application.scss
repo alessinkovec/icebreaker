@@ -34,7 +34,7 @@ input.form-control.sidebar-form {
 .chat-box {
   height: 94vh;
   overflow: scroll;
-  background: url("https://st2.depositphotos.com/3732989/12447/i/950/depositphotos_124470104-stock-photo-light-blue-ice-pattern.jpg");
+  background: whitesmoke;
 
 }
 
@@ -52,6 +52,7 @@ input.form-control.sidebar-form {
 }
 .chat-bubble {
 background-color: #1a0dab;
+color: white;
 padding-left: 20px;
 padding-right: 220px;
 border-radius: 300px;
@@ -63,4 +64,8 @@ justify-content: left;
 }
 .penguin {
   height: 50px;
+  margin: 5px;
+}
+.bubble-message {
+  margin-left: 10px;
 }
