@@ -1,17 +1,16 @@
 <!-- front content -->
-<div class="row">
-  <div class="col-xs-12">
-    <div class="card">
-      <img class="card-img img-fluid" src="<%= @event.photo_url %>">
-      <div class="card-img-overlay">
-        <div class="card-category"><%= event.place_name %></div>
-        <div class="card-description">
-          <%= event.time.strftime('%d-%h | %Hh%Mm') %>
-        </div>
-      </div>
+
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<% if @event.photo_url.nil? %>
+    'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg'
+      <% else %>
+      <%= @event.photo_url %>
+      <% end %>);">
+    <div class="card-category"><%= event.place_name %></div>
+    <div class="card-description">
+      <%= event.time.strftime('%d-%h | %Hh%Mm') %>
     </div>
   </div>
-</div>
+
 
 
 

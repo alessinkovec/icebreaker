@@ -1,24 +1,25 @@
 .full-height {
-height: 100vh;
+height: 50vh;
 overflow: hidden;
 }
 .container-fluid {
-  background-color: whitesmoke;
+ background-color: whitesmoke;
 }
 .chat-box {
- height: 100vh;
- overflow: scroll;
- background: whitesmoke;
+height: 50vh;
+overflow: scroll;
+background: whitesmoke;
 }
 .chat {
- border-radius: 3px;
- padding: 0rem 2rem 0 1rem;
+border-radius: 3px;
+padding: 0rem 2rem 0 1rem;
 }
 .chat-username {
- font-size: 0.7rem;
+font-size: 0.7rem;
 }
 .chat-message {
- font-size: 0.85rem;
+font-size: 0.85rem;
+padding: 10px;
 }
 .chat-bubble {
 background-color: #BD2F3A;
@@ -34,27 +35,31 @@ display: flex;
 justify-content: left;
 }
 .penguin {
- height: 50px;
- margin: 5px;
+height: 30px;
+margin-top: 7px;
 }
 .bubble-message {
- margin-left: 10px;
+margin-left: 10px;
 }
 .form-control {
-  margin: 10px;
+ margin: 10px;
 }
 #row_box {
-  display: flex;
-  justify-content: left;
-  background-color: whitesmoke;
+ display: flex;
+ justify-content: left;
+ background-color: whitesmoke;
 }
 .send-message {
-  color: black;
+ color: black;
 }
 .send {
-  margin: auto;
+ margin: auto;
 }
 .chat-all {
-  display: flex;
-  justify-content: left;
+ display: flex;
+ justify-content: left;
 }
+.pic-name {
+ text-align: center;
+}
+
