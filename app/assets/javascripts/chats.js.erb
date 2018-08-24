@@ -9,7 +9,7 @@ $(document).ready((function(_this) {
      console.log(ev);
 
      if (ev == data.event_id) {
-       $('.chat-box').append("<div class=\"chat-all\"> <div class=\"pic-name\"> <img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\">" + data.username + "</div> <div class=\"chat-bubble\"> <p class=\"m-0 chat-message\">"  + data.message + "</p> </div></div>");
+       $('.chat-box').append("<div class=\"chat-all\"> <div class=\"pic-name\"> <img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\"><br>" + data.username + "</div> <div class=\"chat-bubble\"> <p class=\"m-0 chat-message\">"  + data.message + "</p> </div></div>");
      }
 
    };
