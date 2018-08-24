@@ -1,32 +1,30 @@
 $(document).ready((function(_this) {
-  return function() {
-    var channel, pusher, updateChat, username;
-    username = '';
-    updateChat = function(data) {
+ return function() {
+   var channel, pusher, updateChat, username;
+   username = '';
+   updateChat = function(data) {
 
 
-      var ev = $('.chat-box').attr('id');
-      console.log(ev);
+     var ev = $('.chat-box').attr('id');
+     console.log(ev);
 
-      if (ev == data.event_id) {
-        $('.chat-box').append("<div class=\"chat-all\"> <img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\"> <div class=\"chat-bubble\"> <small class=\"chat-username\">" + data.username + "</small> <p class=\"m-0 chat-message\">" + data.message + "</p> </div></div>");
-      }
+     if (ev == data.event_id) {
+       $('.chat-box').append("<div class=\"chat-all\"> <div class=\"pic-name\"> <img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\">" + data.username + "</div> <div class=\"chat-bubble\"> <p class=\"m-0 chat-message\">"  + data.message + "</p> </div></div>");
+     }
 
-    };
+   };
+$('#chat-form').on('ajax:success', function(data) {
+     $('#chat-form')[0].reset();
+   });
 
+   pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>', {
+     cluster: '<%= ENV["PUSHER_CLUSTER"] %>',
+     encrypted: true
+   });
 
-    $('#chat-form').on('ajax:success', function(data) {
-      $('#chat-form')[0].reset();
-    });
-
-    pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>', {
-      cluster: '<%= ENV["PUSHER_CLUSTER"] %>',
-      encrypted: true
-    });
-
-    channel = pusher.subscribe('chat');
-    channel.bind('new', function(data) {
-      updateChat(data);
-    });
-  };
+   channel = pusher.subscribe('chat');
+   channel.bind('new', function(data) {
+     updateChat(data);
+   });
+ };
 })(this));
