@@ -48,6 +48,10 @@ margin-left: 10px;
  display: flex;
  justify-content: left;
  background-color: whitesmoke;
+ // h3 {
+ //  display: flex;
+ //  justify-content: center;
+ // }
 }
 .send-message {
  color: black;
@@ -61,5 +65,9 @@ margin-left: 10px;
 }
 .pic-name {
  text-align: center;
+}
+.margin {
+  margin: 0;
+
 }
 
