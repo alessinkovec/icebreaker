@@ -1,12 +1,11 @@
-<div class="col-sm-6 col-sm-offset-3 send-message">
-   <h3>Send Message</h3>
- </div>
+
  <div class="container-fluid">
    <div class="row" id="row_box">
-     <div class="chat-text-input" id="<%= @current_user.first_name %>">
+     <div class="col-12 chat-text-input" id="<%= @current_user.first_name %>">
+      <h3 class="d-flex justify-content-center">Send Message</h3>
        <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
        <div class="field position-relative">
-         <%= form.text_field :message, id: :message, class: "form-control", required: true %>
+         <%= form.text_field :message, id: :message, class: "form-control margin", required: true %>
          <%= form.hidden_field :username, value: current_user.first_name %>
          <%= form.hidden_field :event_id, value: @event.id %>
        </div>
