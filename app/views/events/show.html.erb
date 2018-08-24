@@ -1,40 +1,29 @@
 <div class="container">
   <div class="row card-show">
-    <h5 id="event-name"><%= @event.name %> </h5>
-    <%= render "shared/card_show", event: @event %>
-  </div>
-
-  <div class="col-sm-6 col-sm-offset-3 send-message">
-    <h3>Send Message</h3>
-  </div>
-  <div class="container-fluid">
-    <div class="row" id="row_box">
-      <div class="chat-text-input">
-        <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
-        <div class="field position-relative">
-          <%= form.text_field :message, id: :message, class: "form-control", required: true %>
-          <%= form.hidden_field :username, value: current_user.first_name %>
-          <%= form.hidden_field :event_id, value: @event.id %>
-        </div>
-        <% end %>
-      </div>
-      <div class="col-12 col-md-10 full-height">
-        <div class="container-fluid">
-          <div class="chat-box py-2" id="<%= @event.id %>">
-            <h4 class="username d-none mb-3"></h4>
-            <% @chats.each do |chat| %>
-            <div class="col-12">
-              <div class="chat bg-secondary d-inline-block text-left text-white mb-2">
-                <div class="chat-bubble" id="bubble">
-                  <small class="chat-username"><%= chat.username %></small>
-                  <p class="m-0 chat-message"><%= chat.message %></p>
-                </div>
-              </div>
-            </div>
+    <div class="col-12">
+      <h5 class="justify-content-center" id="event-name"><%= @event.name %> </h5>
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+          <div class="front">
+            <%= render "shared/card_show", event: @event %>
+          </div>
+          <div class="back">
+            <!-- back content -->
+            <%= simple_form_for(@event, remote: true) do |f| %>
+              <%= f.input :name %>
+              <%= f.label :place_name %>
+              <%= f.select :place_name, @bar_names %>
+              <%= f.input :time %>
+              <%= f.submit class: "btn btn-primary btn-flip" %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-12">
+      <button class="btn btn-success" id="myCard">Click to Update</button>
+    </div>
   </div>
 </div>
+
+  <%= render "shared/chat" %>
