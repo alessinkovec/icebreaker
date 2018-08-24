@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row card-show">
-    <div class="col-12">
-      <h5 class="justify-content-center" id="event-name"><%= @event.name %> </h5>
+    <div class="col-10 offset-1">
+      <h5 class="text-center" id="event-name"><%= @event.name %> </h5>
       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
           <div class="front">
@@ -13,17 +13,18 @@
               <%= f.input :name %>
               <%= f.label :place_name %>
               <%= f.select :place_name, @bar_names %>
-              <%= f.input :time %>
+              <%= f.input :time, as: :time, minute_step: 30 %>
               <%= f.submit class: "btn btn-primary btn-flip" %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-12">
-      <button class="btn btn-success" id="myCard">Click to Update</button>
+  </div>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <%= render "shared/chat" %>
     </div>
   </div>
 </div>
 
-  <%= render "shared/chat" %>
