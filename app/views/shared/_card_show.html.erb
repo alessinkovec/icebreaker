@@ -1,33 +1,20 @@
-<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-  <div class="flipper">
-    <div class="front">
-      <!-- front content -->
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="card">
-            <img class="card-img img-fluid" src="<%= @event.photo_url %>">
-            <div class="card-img-overlay">
-              <div class="card-category"><%= event.place_name %></div>
-              <div class="card-description">
-                <%= event.time.strftime('%d-%h | %Hh%Mm') %>
-              </div>
-            </div>
-          </div>
+<!-- front content -->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="card">
+      <img class="card-img img-fluid" src="<%= @event.photo_url %>">
+      <div class="card-img-overlay">
+        <div class="card-category"><%= event.place_name %></div>
+        <div class="card-description">
+          <%= event.time.strftime('%d-%h | %Hh%Mm') %>
         </div>
       </div>
     </div>
-    <div class="back">
-      <!-- back content -->
-      <%= simple_form_for(@event, remote: true) do |f| %>
-        <%= f.input :name %>
-        <%= f.label :place_name %>
-        <%= f.select :place_name, @bar_names %>
-        <%= f.input :time %>
-        <%= f.submit class: "btn btn-primary btn-flip" %>
-      <% end %>
-    </div>
   </div>
 </div>
-<button class="btn btn-success" id="myCard">Click to Update</button>
+
+
+
+
 
 
