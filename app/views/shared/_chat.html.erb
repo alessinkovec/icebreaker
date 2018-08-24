@@ -3,7 +3,7 @@
  </div>
  <div class="container-fluid">
    <div class="row" id="row_box">
-     <div class="chat-text-input">
+     <div class="chat-text-input" id="<%= @current_user.first_name %>">
        <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
        <div class="field position-relative">
          <%= form.text_field :message, id: :message, class: "form-control", required: true %>
@@ -15,20 +15,13 @@
      <div class="col-12 full-height">
        <div class="container-fluid">
          <div class="chat-box py-2" id="<%= @event.id %>">
-           <h4 class="username d-none mb-3"></h4>
-           <% @chats.each do |chat| %>
-           <div class="col-12">
-             <div class="chat-all">
-              <div class="pic-name">
-               <img class="penguin" src="https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636">
-               <br>
-               <%= chat.username %>
-               </div>
-               <div class="chat-bubble" id="bubble">
-                 <p class="m-0 chat-message"><%= chat.message %></p>
-               </div>
-             </div>
-           </div>
+          <h4 class="username d-none mb-3"></h4>
+          <% @chats.each do |chat| %>
+          <% if chat.username == current_user.first_name %>
+             <%= render "shared/chat_me", chat: chat %>
+             <% else %>
+             <%= render "shared/chat_you", chat: chat %>
+           <% end %>
            <% end %>
          </div>
        </div>

@@ -5,4 +5,5 @@ class Chat < ApplicationRecord
   def notify_pusher
     Pusher.trigger('chat', 'new', self.as_json)
   end
+
 end

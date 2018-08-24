@@ -29,6 +29,7 @@ text-shadow: .3px .3px .3px white;
 padding-left: 10px;
 border-radius: 20px;
 margin: 10px;
+
 }
 .img_text {
 display: flex;
@@ -57,6 +58,11 @@ margin-left: 10px;
 }
 .chat-all {
  display: flex;
+ justify-content: right;
+ margin-bottom: 20px;
+}
+#chat-all2 {
+ display: flex;
  justify-content: left;
  margin-bottom: 20px;
 }
@@ -66,4 +72,11 @@ margin-left: 10px;
  margin-top: auto;
  margin-bottom: auto;
 }
-
+#bubble2 {
+background-color: blue;
+color: white;
+text-shadow: .3px .3px .3px white;
+padding-left: 10px;
+border-radius: 20px;
+margin: 10px;
+}
