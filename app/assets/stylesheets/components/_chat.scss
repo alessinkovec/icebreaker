@@ -20,15 +20,16 @@ font-size: 0.7rem;
 .chat-message {
 font-size: 0.85rem;
 padding: 10px;
+padding-right: 15px;
 }
 .chat-bubble {
 background-color: #BD2F3A;
 color: white;
-text-shadow: .5px .5px .5px white;
-padding-left: 20px;
-padding-right: 220px;
+text-shadow: .3px .3px .3px white;
+padding-left: 10px;
 border-radius: 20px;
 margin: 10px;
+
 }
 .img_text {
 display: flex;
@@ -57,12 +58,30 @@ margin-left: 10px;
 }
 .chat-all {
  display: flex;
+ justify-content: right;
+ margin-bottom: 20px;
+}
+#chat-all2 {
+ display: flex;
  justify-content: left;
+ margin-bottom: 20px;
 }
 .pic-name {
  text-align: center;
+ display: inline-block;
+ margin-top: auto;
+ margin-bottom: auto;
+}
+#bubble2 {
+background-color: blue;
+color: white;
+text-shadow: .3px .3px .3px white;
+padding-left: 10px;
+border-radius: 20px;
+margin: 10px;
 }
 .margin {
   margin: 0;
 }
+
 
