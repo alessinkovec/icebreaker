@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   has_many :users
-  has_many :chats
+  has_many :chats, dependent: :destroy
 
 
   validates :name, presence: true
