@@ -4,6 +4,6 @@ import { scroll } from "../components/scroll.js"
 
 if (document.querySelector('.flip-container')) flipcard();
 
-scroll();
+if (document.querySelector('#scroll')) scroll();
 
 
