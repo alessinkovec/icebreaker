@@ -1,37 +1,41 @@
 
 
 .banner {
-  height: calc(100vh - 100px);
+  height: 100vh;
   display: flex;
+  color: white;
   align-items: center;
   justify-content: center;
 }
-
-.button {
-  -moz-box-shadow:inset 0px 1px 5px 5px #F3A5AA;
-  -webkit-box-shadow:inset 0px 1px 5px 5px #F3A5AA;
-  box-shadow:inset 0px 1px 5px 5px #F3A5AA;
-  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf) );
-  background:-moz-linear-gradient( center top, #63b8ee 5%, #468ccf 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
-  background-color:#BD2F3A;
-  border-radius: 50%;
-  text-indent:0px;
-  display:inline-block;
-  color:#F2F2FD;
-  font-size:50px;
-  font-weight: lighter;
-  letter-spacing: 10px;
-  font-style:normal;
-  line-height:65px;
-  height: 50%;
-  width: 100vh;
-  text-decoration:none;
-  text-align:center;
-  display: flex;
+.banner-content {
   align-items: center;
-  justify-content: center;
+  text-align: center;
 }
+// .button {
+//   -moz-box-shadow:inset 0px 1px 5px 5px #F3A5AA;
+//   -webkit-box-shadow:inset 0px 1px 5px 5px #F3A5AA;
+//   box-shadow:inset 0px 1px 5px 5px #F3A5AA;
+//   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf) );
+//   background:-moz-linear-gradient( center top, #63b8ee 5%, #468ccf 100% );
+//   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+//   background-color:#BD2F3A;
+//   border-radius: 50%;
+//   text-indent:0px;
+//   display:inline-block;
+//   color:#F2F2FD;
+//   font-size:50px;
+//   font-weight: lighter;
+//   letter-spacing: 10px;
+//   font-style:normal;
+//   line-height:65px;
+//   height: 50%;
+//   width: 100vh;
+//   text-decoration:none;
+//   text-align:center;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
 .button:hover {
   background-color:#A82A33;
   text-decoration: none;
@@ -42,4 +46,14 @@
   top:3px;
   left: 3px;
   text-decoration: none;
+}
+.events_nearby {
+  color: white;
+  text-align: center;
+}
+.v {
+line-height: 10px;
+}
+.bear {
+  height: 100px;
 }
