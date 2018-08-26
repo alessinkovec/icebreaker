@@ -17,7 +17,17 @@
     <br>
     <br>
 <div class="title">
- <h4 class="events_nearby">Or find events near you</h4>
+
+ <% if @events.count == 1 %>
+  <h4 class="events_nearby"> <a href="#" id="scroll"> <%= "#{@events.count} event near you" %> </a> </h4>
+
+ <% elsif @events.count > 0 %>
+  <h4 class="events_nearby">
+    <a href="#" id="scroll"> <%= "#{@events.count} events near you" %> </a> </h4>
+
+ <% else %>
+  <h4 class="events_nearby">There are no events near you =/ </h4>
+ <% end %>
  <br>
     <p class="v">V</p>
     <p class="v">V</p>
