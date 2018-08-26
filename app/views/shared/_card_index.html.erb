@@ -1,20 +1,22 @@
 <% @events.each do |event| %>
 <% if event.status? %>
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
-      <%= event.photo_url %>);">
-    <div class="card-category">
-      <strong><%= event.name.upcase %></strong>
-      <br>
-      <%= event.place_name %>
-    </div>
-    <div class="card-user">
-      <%= event.users.count %>  <i class="fas fa-users"></i>
-    </div>
-    <div class="card-description">
-      <%= event.time.strftime('%d-%h | %Hh%Mm') %>
-    </div>
-    <%= link_to "", event, class: "card-link" %>
+<div class="card-white">
+  <div class="card" style="background-image: /*linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),*/ url(
+  <%= event.photo_url %>);">
   </div>
+  <div class="card-category">
+    <strong><%= event.name.upcase %></strong>
+    <br>
+    <%= event.place_name %>
+  </div>
+  <div class="card-user">
+    <%= event.users.count %>  <i class="fas fa-users"></i>
+  </div>
+  <div class="card-description">
+    <%= event.time.strftime('%d-%h | %Hh%Mm') %>
+  </div>
+  <%= link_to "", event, class: "card-link" %>
+</div>
 <br>
 <% end %>
 <% end %>
