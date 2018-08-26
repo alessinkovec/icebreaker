@@ -6,6 +6,9 @@
     <br>
     <br>
     <%= link_to 'LAUNCH', events_path(@event), class: "btn btn-primary", method: :post %>
+    <!-- <br>
+    <br>
+    <br> -->
     <br>
     <br>
     <br>
@@ -13,27 +16,28 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-<div class="title">
+    <div class="title">
 
- <% if @events.count == 1 %>
-  <h4 class="events_nearby"> <a href="#" id="scroll"> <%= "#{@events.count} event near you" %> </a> </h4>
+     <% if @events.count == 1 %>
+     <h4 class="events_nearby"> <a href="#" id="scroll"> <%= "#{@events.count} event near you" %> </a> </h4>
 
- <% elsif @events.count > 0 %>
-  <h4 class="events_nearby">
-    <a href="#" id="scroll"> <%= "#{@events.count} events near you" %> </a> </h4>
+     <% elsif @events.count > 0 %>
+     <h4 class="events_nearby">
+      <a href="#" id="scroll"> <%= "#{@events.count} events near you" %> </a> </h4>
 
- <% else %>
-  <h4 class="events_nearby">There are no events near you =/ </h4>
- <% end %>
- <br>
-    <p class="v">V</p>
-    <p class="v">V</p>
-    <p class="v">V</p>
+      <% else %>
+      <h4 class="events_nearby">There are no events near you =/ </h4>
+      <% end %>
+    </div>
+    <br>
   </div>
 </div>
-</div>
+<section id="section07" class="demo">
+  <a href="#section08">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+</section>
 
 
