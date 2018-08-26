@@ -16,6 +16,8 @@ class EventsController < ApplicationController
     @chat = Chat.new
     @chats = Chat.where(event_id: params[:id])
     @event = Event.find_by(id: params[:id])
+    current_user.event_id = @event.id
+    current_user.save
     parse
     @bar_names = []
     @mega_hash["results"].each do |bar|
@@ -61,6 +63,8 @@ class EventsController < ApplicationController
       photo_url: random_bar["photos"].nil? ? 'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg' : "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}",
       time: DateTime.new(Date.today.year, Date.today.month, Date.today.day, rand(19..20), [00,30].sample)
     )
+    current_user.event_id = @event.id
+    current_user.save
     redirect_to event_path(@event)
     # @chat = Chat.new
     # @chat.username = current_user.first_name
