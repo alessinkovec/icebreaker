@@ -7,6 +7,9 @@
       <br>
       <%= event.place_name %>
     </div>
+    <div class="card-user">
+      <%= event.users.count %>  <i class="fas fa-users"></i>
+    </div>
     <div class="card-description">
       <%= event.time.strftime('%d-%h | %Hh%Mm') %>
     </div>

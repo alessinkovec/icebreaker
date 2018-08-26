@@ -1,11 +1,10 @@
 <!-- front content -->
 
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<% if @event.photo_url.nil? %>
-    'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg'
-      <% else %>
-      <%= @event.photo_url %>
-      <% end %>);">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @event.photo_url %>);">
     <div class="card-category"><%= event.place_name %></div>
+    <div class="card-user">
+      <%= event.users.count %>  <i class="fas fa-users"></i>
+    </div>
     <div class="card-description">
       <%= event.time.strftime('%d-%h | %Hh%Mm') %>
     </div>
