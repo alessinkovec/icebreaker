@@ -5,9 +5,7 @@ const flipcard = () => {
     document.querySelector('.flip-container').classList.toggle("flip");
   })
   btnFlip.addEventListener('click', (e) => {
-    setTimeout(function(){
      document.querySelector('.flip-container').classList.toggle("flip");
-   }, 700);
   })
 }
 
