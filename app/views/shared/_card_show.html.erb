@@ -3,8 +3,8 @@
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @event.photo_url %>);">
     </div>
   <div class="card-category"><%= event.place_name %></div>
-    <div class="card-user-show">| <%= event.users.count %>  <i class="fas fa-users"></i></div>
-    <div class="card-description"><%= event.time.strftime('%d-%h | %Hh%Mm') %></div>
+    <div class="card-user-show"></div>
+    <div class="card-description"><%= event.time.strftime('%d-%h | %Hh%Mm') %> | <%= event.users.count %>  <i class="fas fa-users"></i></div>
     <div class="card-update"><i class="far fa-edit" id="myCard"></i></div>
     <div class="card-gmaps"><a href="https://www.google.com/maps/dir/?api=1&origin=<%= current_user.address %>&destination=<%= event.address %>" target="_blank"><i class="fas fa-map-marker-alt"></i></a></div>
 </div>
