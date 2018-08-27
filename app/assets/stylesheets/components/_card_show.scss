@@ -9,23 +9,34 @@
 .card-user {
   position: absolute;
   right: 10px;
-  bottom: 10px;
+  bottom: 3px;
   // width: 40px;
   // border-radius: 50%;
 }
 .card-user-show {
   position: absolute;
-  right: 100px;
+  right: 97px;
   bottom: 10px;
+}
+.card-gmaps a {
+  position: absolute;
+  right: 17px;
+  bottom: 34px;
+  color: black;
+  font-size: 25px;
+  a {
+    text-decoration: none;
+  }
 }
 .card-update {
   position: absolute;
   right: 10px;
-  bottom: 10px;
+  bottom: 3px;
+  font-size: 25px;
 }
 .card-category {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
   left: 10px;
   font-size: 15px;
   text-transform: uppercase;
@@ -34,6 +45,7 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  color: black;
 }
 .card-description h2 {
   font-size: 24px;
