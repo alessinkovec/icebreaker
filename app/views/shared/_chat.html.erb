@@ -2,7 +2,7 @@
  <div class="container-fluid">
    <div class="row" id="row_box">
      <div class="col-12 chat-text-input" id="<%= @current_user.first_name %>">
-      <p class="d-flex justify-content-center">Send Message</p>
+      <p class="d-flex justify-content-center">Send message</p>
      </div>
      <div class="col-12 full-height">
        <div class="container-fluid">
@@ -21,6 +21,7 @@
          <%= form.text_field :message, id: :message, class: "form-control margin", required: true %>
          <%= form.hidden_field :username, value: current_user.first_name %>
          <%= form.hidden_field :event_id, value: @event.id %>
+         <%= form.submit "Send", :class => "btn btn-warning" %>
        </div>
        <% end %>
        </div>
