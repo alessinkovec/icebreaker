@@ -41,9 +41,29 @@
   font-size: 15px;
   text-transform: uppercase;
 }
+.card-category-index {
+  position: absolute;
+  bottom: 27px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-name {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
 .card-description {
   position: absolute;
   bottom: 10px;
+  left: 10px;
+  color: black;
+}
+.card-description-index {
+  position: absolute;
+  bottom: 3px;
   left: 10px;
   color: black;
 }
