@@ -8,4 +8,3 @@ if (document.querySelector('.flip-container')) flipcard();
 if (document.querySelector('#scroll')) scroll();
 if (document.querySelector('.scroll2')) scroll2();
 
-
