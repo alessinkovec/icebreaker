@@ -15,9 +15,11 @@ $(document).ready((function(_this) {
        // $('.chat-box').append("<div class=\"chat-all\"> <div class=\"pic-name\"> <img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\"><br>" + data.username + "</div> <div class=\"chat-bubble\"> <p class=\"m-0 chat-message\">"  + data.message + "</p> </div></div>");
 
        if(user == data.username) {
-        $('.chat-box').append("<div class=\"chat-all\"><div class=\"chat-bubble\" id=\"bubble\"><p class=\"m-0 chat-message\">" + data.message + "</div><div class=\"pic-name\"><img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\"><br>" + data.username + "</div></div>");
+        $('.chat-box').append("<div class=\"chat-me\"><div class=\"chat-bubble\" id=\"bubble\"><p class=\"m-0 chat-message\">" + data.message + "</div><div class=\"pic-name\"><img class=\"penguin\" src=\"https://vignette.wikia.nocookie.net/farmville/images/e/e9/White_Baby_Penguin-icon.png/revision/latest?cb=20121101164636\"><br>" + data.username + "</div></div>");
+      $(".chat-box").scrollTop($(".chat-box")[0].scrollHeight);
       }else{
-        $('.chat-box').append("\n<div class=\"chat-all\"id=\"chat-all2\">\n<div class=\"pic-name\">\n<img class=\"penguin\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_v8ReA8GFkfLV3V4Hv43b9zO3VWtLpMnzm9chfh3dz-zkAWW\">\n<br>\n" + data.username + "\n</div>\n<div class=\"chat-bubble\" id=\"bubble2\">\n<p class=\"m-0 chat-message\">" + data.message + "</p>\n</div>\n</div>\n");
+        $('.chat-box').append("\n<div class=\"chat-you\"id=\"chat-all2\">\n<div class=\"pic-name\">\n<img class=\"penguin\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO_v8ReA8GFkfLV3V4Hv43b9zO3VWtLpMnzm9chfh3dz-zkAWW\">\n<br>\n" + data.username + "\n</div>\n<div class=\"chat-bubble\" id=\"bubble2\">\n<p class=\"m-0 chat-message\">" + data.message + "</p>\n</div>\n</div>\n");
+      $(".chat-box").scrollTop($(".chat-box")[0].scrollHeight);
       }
     }
 
