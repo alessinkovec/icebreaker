@@ -5,12 +5,6 @@
   <div class="card-category"><%= event.place_name %></div>
     <div class="card-user-show">| <%= event.users.count %>  <i class="fas fa-users"></i></div>
     <div class="card-description"><%= event.time.strftime('%d-%h | %Hh%Mm') %></div>
-    <div class="card-update"><button class="btn btn-primary" id="myCard">Edit</button></div>
+    <div class="card-update"><i class="far fa-edit" id="myCard"></i></div>
+    <div class="card-gmaps"><a href="https://www.google.com/maps/dir/?api=1&origin=<%= current_user.address %>&destination=<%= event.address %>" target="_blank"><i class="fas fa-map-marker-alt"></i></a></div>
 </div>
-
-
-
-
-
-
-
