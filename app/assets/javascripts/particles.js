@@ -279,10 +279,10 @@
 
 })));
 
-const button = document.querySelector(".particle");
+var button = document.querySelector(".particle");
 if (button) {
-const particles = new Particles('.particle');
-const bear = new Particles('.bear')
+var particles = new Particles('.particle');
+var bear = new Particles('.bear')
 
 // Disintegrate the button into particles
 button.addEventListener("click", (e) => {
