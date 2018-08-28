@@ -1,12 +1,13 @@
 <% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
 {
   "name": "Icebreaker",
-  "short_name": "ICEBREAKER",
+  "short_name": "Icebreaker",
+  "description": "Meet people in one click",
   "start_url": "www.icebreaker.fun",
   "icons": [
   <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
-      "src": "<%= image_path "polar_bear_white.svg" %>",
+      "src": "<%= image_path "icons/iconApplicationIcon-#{dim}.png" %>",
       "sizes": "<%= dim %>",
       "type": "image/png"
     }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
