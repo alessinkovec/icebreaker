@@ -25,7 +25,7 @@ development:
   <<: *default
   database: icebreaker_development
   username: iceyb
-  password: Password2
+  password: password2
 
 
 
