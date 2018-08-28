@@ -1,6 +1,13 @@
 <!-- front content -->
 <div class="card-white">
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @event.photo_url %>);">
+    <% if event.users.count > 2 %>
+    <p class="confirmation">Event confirmed</p>
+    <% else %>
+    <div class="btn btn-sm btn-danger confirmation">
+      <%= link_to "Cancel Event", event, method: :delete %>
+    </div>
+    <% end %>
     </div>
   <div class="card-category"><%= event.place_name %></div>
     <div class="card-user-show"></div>

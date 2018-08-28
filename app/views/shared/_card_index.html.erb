@@ -2,14 +2,13 @@
 <% if event.status? %>
 <div class="card-white">
   <div class="card" style="background-image: /*linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),*/ url(
-  <%= event.photo_url %>);">
+  <%= event.photo_url %>);"><%= link_to "", event, class: "card-link" %>
   </div>
-  <div class="card-category-index"><strong><%= event.name.upcase %></strong>
+  <div class="card-category-index"><strong><%= event.name.upcase.truncate(36) %></strong>
     <br>
     <%= event.place_name %>
   </div>
-  <div class="card-description-index"><%= event.time.strftime('%d-%h | %Hh%Mm') %> | <%= event.users.count %><i class="fas fa-users"></i></div>
-  <%= link_to "", event, class: "card-link" %>
+  <div class="card-description-index"><%= event.time.strftime('%d-%h | %Hh%Mm') %> | <%= event.users.count %><i class="fas fa-users"></i><% unless current_user.nil? %> | <a href="https://www.google.com/maps/dir/?api=1&origin=<%= current_user.address %>&destination=<%= event.address %>" target="_blank"><i class="fas fa-map-marker-alt"></i></a><% end %></div>
 </div>
 <br>
 <% end %>
