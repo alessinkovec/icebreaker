@@ -24,9 +24,9 @@ default: &default
 development:
   <<: *default
   database: icebreaker_development
+  username: iceyb
+  password: password2
 
-  username: Francisco
-  password:
 
 
 
