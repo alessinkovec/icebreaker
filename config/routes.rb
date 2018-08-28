@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'events#index'
   # post '/events', to: 'events#create'
 
-  resources :events, only: [:index, :show, :create, :update]
+  resources :events, only: [:index, :show, :create, :update, :destroy]
   resources :chats
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

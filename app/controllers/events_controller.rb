@@ -82,6 +82,17 @@ class EventsController < ApplicationController
 
   end
 
+  def destroy
+    @event = Event.find_by(id: params[:id])
+    @users = User.where(event_id: @event.id)
+    @users.each do |user|
+      user.event_id = nil
+      user.save
+    end
+    @event.destroy
+    redirect_to root_path
+  end
+
   EVENT_TYPES = [
     "'s going away drinks",
     "'s first day",
