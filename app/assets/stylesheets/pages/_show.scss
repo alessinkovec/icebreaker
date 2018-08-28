@@ -11,11 +11,11 @@ body {
   background-size: contain;
 }
 .full-height {
- height: 47vh;
+ height: 39vh;
  overflow: hidden;
 }
 .chat-box {
-  height: 37vh;
+  height: 30vh;
   overflow: scroll;
 }
 .chat {
@@ -28,5 +28,9 @@ body {
 .chat-message {
   font-size: 0.85rem;
 }
-
-
+.row {
+  height: 46vh;
+}
+.chat-text-input {
+  height: 10px;
+}
