@@ -285,10 +285,10 @@ var particles = new Particles('.particle');
 var bear = new Particles('.bear')
 
 // Disintegrate the button into particles
-button.addEventListener("click", (e) => {
+button.addEventListener("click", function(e) {
     particles.disintegrate();
    bear.disintegrate();
-});
+  });
 };
 
 
