@@ -280,13 +280,13 @@
 })));
 
 const particles = new Particles('.particle');
-//const bear = new Particles('.bear')
+const bear = new Particles('.bear')
 
 // Disintegrate the button into particles
 const button = document.querySelector(".particle");
 button.addEventListener("click", (e) => {
     particles.disintegrate();
-   // bear.disintegrate();
+   bear.disintegrate();
 });
 
 
