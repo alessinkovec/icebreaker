@@ -1,0 +1,19 @@
+<% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
+{
+  "name": "Icebreaker",
+  "short_name": "ICEBREAKER",
+  "start_url": "www.icebreaker.fun",
+  "icons": [
+  <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
+    {
+      "src": "<%= image_path "polar_bear_white.svg" %>",
+      "sizes": "<%= dim %>",
+      "type": "image/png"
+    }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
+  <% end %>
+  ],
+  "theme_color": "#2DC2BD",
+  "background_color": "#2DC2BD",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
