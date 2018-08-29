@@ -17,7 +17,7 @@
          </div>
        <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
        <div class="field position-relative">
-         <%= form.text_field :message, id: :message, class: "form-control margin", required: true, placeholder: "chat with others" %>
+         <%= form.text_field :message, id: :message, class: "form-control margin", required: true, placeholder: "discuss event details" %>
          <%= form.hidden_field :username, value: current_user.first_name %>
          <%= form.hidden_field :event_id, value: @event.id %>
          <%= form.submit "Send", :class => "btn btn-warning" %>
