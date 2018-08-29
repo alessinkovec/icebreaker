@@ -14,21 +14,22 @@
     <br>
     <br>
     <br>
-    <div class="title">
+
+    <br>
+  </div>
+  <div class="title">
 
      <% if @events.count == 1 %>
-     <h4 class="events_nearby"> <a href="#" id="scroll"> <%= "#{@events.count} event near you" %> </a> </h4>
+     <h4 class="events_nearby text-center"> <a href="#" id="scroll"> <%= "#{@events.count} event near you" %> </a> </h4>
 
      <% elsif @events.count > 0 %>
-     <h4 class="events_nearby">
+     <h4 class="events_nearby text-center">
       <a href="#" id="scroll"> <%= "#{@events.count} events near you" %> </a> </h4>
 
       <% else %>
-      <h4 class="events_nearby">There are no events near you =/ </h4>
+      <h4 class="events_nearby text-center">There are no events near you =/ </h4>
       <% end %>
     </div>
-    <br>
-  </div>
 </div>
 <section id="section07" class="demo scroll2">
   <a href="#">
