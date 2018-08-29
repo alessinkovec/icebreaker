@@ -7,7 +7,9 @@
     <br>
     <br>
 
-    <%= link_to 'LAUNCH', events_path(@event), class: "btn btn-primary particle", id: "orangebtn", method: :post %>
+    <%= link_to events_path(@event), class: "particle", id: "orangebtn", method: :post do %>
+    <span class="margin-top">LAUNCH</span>
+    <% end %>
 
     <br>
     <br>
