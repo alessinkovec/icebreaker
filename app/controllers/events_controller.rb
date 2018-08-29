@@ -96,23 +96,18 @@ class EventsController < ApplicationController
   EVENT_TYPES = [
     "'s going away drinks",
     "'s first day",
-    "'s first gangbang",
-    "'s gonna skull fuck you",
-    "'s gonna get it onnnn",
     "'s birthday",
-    "'s gonna get his pussy waxed",
-    "'s lapdance",
+    "'s drinkathon",
+    "'s meet-a-palooza",
     "'s last hoorah",
-    "'s huzzah"
-  ]
-
-  PLACES = [
-    "Blue Agave, Ipanema",
-    "Sabugosa, Ipanema",
-    "Polis Sucos, Ipanema",
-    "Centaurus, Ipanema",
-    "Azumi, Copacabana",
-    "Siqueiro Campos Metro, Copacabana"
+    "'s huzzah",
+    "'s barbecue",
+    "'s party",
+    "'s funtime",
+    "'s showtime",
+    "'s favorite fun time",
+    "'s hooplah",
+    "'s first time"
   ]
 
   private
