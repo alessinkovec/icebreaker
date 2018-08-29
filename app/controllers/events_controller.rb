@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     new_bar = @mega_hash["results"].select do |bar|
       bar["name"] == @event.place_name
     end
-    bar_photo_ref = new_bar[0]['photos'][0]['photo_reference']
+    bar_photo_ref = new_bar[0]['photos'][0]['photo_reference'] unless new_bar[0]['photos'].nil?
     @event.photo_url = new_bar[0]['photos'].nil? ? 'https://cdn.civitatis.com/estados-unidos/las-vegas/guia/bar-coyote.jpg' : "https://maps.googleapis.com/maps/api/place/photo?maxwidth=450&maxheight=250&photoreference=#{bar_photo_ref}&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     @event.address = new_bar[0]['vicinity']
 
