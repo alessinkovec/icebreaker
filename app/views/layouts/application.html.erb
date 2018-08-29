@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ICEbreaker - the place to meet people near you</title>
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,12 +13,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- <%#= stylesheet_pack_tag 'application', media: 'all' %> Uncomment if you import CSS in app/javascript/packs/application.js -->
     <meta name="description" content="ICEbreaker is the fastest and safest way to network with people near you. Geared towards office workers and digital nomads, an experience is only one click away.">
-     <meta name="theme-color" content="#2DC2BD"/>
+     <meta name="theme-color" content="#3991BA"/>
      <%= render "shared/head" %>
-<!--     <meta property="og:title" content="Le Wagon - The French innovative coding school">
-    <meta property="og:image" content="facebook-card.jpg">
-    <meta property="og:description" content="Le Wagon is the best French coding school for entrepreneurs. Checkout by yourself the projects of our students. You will be impressed.">
-    <meta property="og:site_name" content="Le Wagon"/> -->
+    <meta property="og:title" content="ICEbreaker - the place to meet people near you">
+    <meta property="og:image" content="<%= asset_url('fb-img.png') %>">
+    <meta property="og:description" content="ICEbreaker is the fastest and safest way to network with people near you. Geared towards office workers and digital nomads, an experience is only one click away.">
+    <meta property="og:site_name" content="ICEbreaker"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.icebreaker.fun"/>
+
 <!--     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@Lewagonparis">
     <meta name="twitter:title" content="Le Wagon - The French innovative coding school">
