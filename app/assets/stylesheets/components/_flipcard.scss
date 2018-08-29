@@ -42,8 +42,15 @@
 /* back, initially hidden pane */
 .back {
   transform: rotateY(180deg);
+  position: relative;
 }
 .text-center {
   height: 7vh;
+}
+.back-link {
+  text-decoration: none;
+  position: absolute;
+  right: 8px;
+
 }
 
