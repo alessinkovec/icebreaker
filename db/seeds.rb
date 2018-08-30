@@ -28,8 +28,8 @@ password: "123456"
 )
 
 User.create!(
-first_name: "Aleš",
-last_name: "Šinkovec",
+first_name: "Ales",
+last_name: "Sinkovec",
 address: "WeWork Ipanema",
 gender: "male",
 birthday: "18-4-1980",
