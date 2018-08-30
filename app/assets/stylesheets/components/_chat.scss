@@ -30,6 +30,10 @@ font-size: 0.85rem;
 padding: 10px;
 padding-right: 15px;
 }
+.chat-message2 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .chat-bubble {
 background-color: #112151;
 opacity: 0.7;
@@ -38,6 +42,7 @@ text-shadow: .3px .3px .3px white;
 padding-left: 10px;
 border-radius: 20px;
 margin: 10px;
+max-width: 35vh;
 
 }
 .img_text {
@@ -68,7 +73,9 @@ margin-left: 10px;
 .chat-me {
  display: flex;
  justify-content: flex-end;
- margin-bottom: 0px;
+ margin-bottom: -7px;
+ margin-top: -6px;
+
 }
 .chat-you {
  display: flex;
@@ -83,12 +90,16 @@ margin-left: 10px;
 }
 #bubble2 {
 background-color: whitesmoke;
+padding: 5px;
 opacity: 0.7;
 color: #112151;
 text-shadow: .3px .3px .3px white;
 padding-left: 10px;
 border-radius: 20px;
-margin: 10px;
+margin: 5px;
+max-width: 35vh;
+margin-top: 8px;
+padding-right: 12px;
 }
 .margin {
   margin: 0;
@@ -104,4 +115,8 @@ margin: 10px;
 }
 .btn-warning {
   margin-left: 3px;
+}
+.chat-user {
+  padding-left: 5px;
+  color: red;
 }

@@ -1,11 +1,8 @@
 <% penguins = ["babyblue", "blue", "ginger", "green", "orange", "pink", "purple", "violet", "yellow"] %>
 <div class="chat-you" id="chat-all2">
-  <div class="pic-name">
-   <img class="penguin" src="<%= image_path "penguins/penguin-#{penguins.sample}.png" %>">
+ <div class="chat-bubble2" id="bubble2">
+   <span class="chat-user"><strong><%= chat.username %></strong></span>
    <br>
-   <%= chat.username %>
- </div>
- <div class="chat-bubble" id="bubble2">
-   <p class="m-0 chat-message"><%= chat.message %></p>
+   <span class="chat-message2"><%= chat.message %></span>
  </div>
 </div>
