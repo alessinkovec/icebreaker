@@ -9,3 +9,6 @@ eventPlaceName.innerHTML = "<%= @event.place_name %>";
 
 eventPhoto = document.querySelector(".card");
 eventPhoto.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= raw @event.photo_url %>)";
+
+eventMaps = document.querySelector(".card-gmaps");
+eventMaps.innerHTML = "<a href='https://www.google.com/maps/dir/?api=1&origin=<%= current_user.address %>&destination=<%= @event.address %>' target='_blank'><i class='fas fa-map-marker-alt'></i></a>";
