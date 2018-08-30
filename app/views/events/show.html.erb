@@ -13,8 +13,9 @@
               <%= f.label :place_name %>
               <%= f.select :place_name, @bar_names %>
               <%= f.input :time, as: :time, minute_step: 30 %>
-              <%= f.submit class: "btn btn-primary btn-flip" %>
-            <%= link_to "back", event_path, class:"back-link" %>
+              <%= f.submit 'UPDATE', class: "btn btn-primary btn-flip" %>
+            <%= link_to "CANCEL", @event, class: "btn btn-danger confirmation", method: :delete %>
+            <%= link_to "BACK", event_path, class:"btn btn-light back-link" %>
             <% end %>
           </div>
         </div>
