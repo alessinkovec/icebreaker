@@ -7,9 +7,11 @@
     <br>
     <br>
 
-    <%= link_to events_path(@event), class: "particle", id: "orangebtn", method: :post do %>
-    <span class="margin-top">create event</span>
+    <%= link_to events_path(@event), class: "hide", id:"btn-hidden", method: :post do %>
+    <!-- <span class="margin-top">create event</span> -->
     <% end %>
+
+    <a href="#" class="particle" id="orangebtn">create event</a>
 
     <br>
     <br>

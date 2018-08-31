@@ -279,15 +279,21 @@
 
 })));
 
-var button = document.querySelector(".particle");
+var button = document.querySelector("#orangebtn");
+var hiddenButton = document.querySelector("#btn-hidden");
+
 if (button) {
 var particles = new Particles('.particle');
-var bear = new Particles('.bear')
+var bear = new Particles('.bear');
 
 // Disintegrate the button into particles
 button.addEventListener("click", function(e) {
     particles.disintegrate();
-   bear.disintegrate();
+    bear.disintegrate();
+    setTimeout(function() {
+      hiddenButton.click();
+    }, 1000);
+    // hiddenButton.click()
   });
 };
 
