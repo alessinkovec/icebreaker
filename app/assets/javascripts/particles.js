@@ -292,7 +292,7 @@ button.addEventListener("click", function(e) {
     bear.disintegrate();
     setTimeout(function() {
       hiddenButton.click();
-    }, 1000);
+    }, 1300);
     // hiddenButton.click()
   });
 };
