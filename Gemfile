@@ -36,6 +36,9 @@ gem 'geocoder'
 gem 'json'
 gem 'omniauth-facebook'
 gem 'serviceworker-rails'
+gem 'simplecov', require: false, group: :test
+gem 'rails-controller-testing'
+
 
 
 group :development do
@@ -49,4 +52,6 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
