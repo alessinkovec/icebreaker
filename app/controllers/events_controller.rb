@@ -79,7 +79,6 @@ class EventsController < ApplicationController
     #   format.html { render :new }
     #   format.json { render json: @chat.errors, status: :unprocessable_entity }
     # end
-
   end
 
   def destroy

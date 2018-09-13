@@ -7,8 +7,8 @@ RSpec.describe Event, type: :model do
       expect(event).to eq(false)
     end
     it "should save sucessfully" do
-      event = Event.new(name: 'Evento', address: 'Rua Maria Quitéria, 68 Ipanema', time: "19:30").save
-      expect(event).to eq(true)
+      event = create(:event)
+      expect(event.valid?).to eq(true)
     end
   end
 end
