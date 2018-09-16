@@ -38,7 +38,6 @@ gem 'omniauth-facebook'
 gem 'serviceworker-rails'
 gem 'simplecov', require: false, group: :test
 gem 'rails-controller-testing'
-gem 'capybara'
 
 
 group :development do
@@ -54,4 +53,5 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'capybara'
 end
